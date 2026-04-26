@@ -10,9 +10,21 @@ import { useCart } from "@/store/cart";
 import { IS_ECOMMERCE } from "@/lib/mode";
 import type { Product } from "@/lib/types";
 
+// Curadoria: destaque + uma peça de cada categoria pra mostrar variedade
+const FEATURED_SLUG = "mola-barra-olimpica";
+const CARD_SLUGS = [
+  "kit-molas-cama-4-5m", // Cama Elástica
+  "mola-jump-profissional", // Jump
+  "mola-suspensao-carro", // Automotivo
+  "mola-compressao-industrial", // Industrial
+] as const;
+
 export function FeaturedGrid() {
-  const featured = PRODUCTS[0]; // Mola Barra Olímpica
-  const cards = PRODUCTS.slice(1, 5);
+  const featured =
+    PRODUCTS.find((p) => p.slug === FEATURED_SLUG) ?? PRODUCTS[0];
+  const cards = CARD_SLUGS.map((slug) =>
+    PRODUCTS.find((p) => p.slug === slug),
+  ).filter((p): p is (typeof PRODUCTS)[number] => Boolean(p));
   const add = useCart((s) => s.add);
   const router = useRouter();
 

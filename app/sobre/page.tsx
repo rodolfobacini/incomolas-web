@@ -159,7 +159,7 @@ export default function SobrePage() {
               {
                 y: "2010",
                 t: "Fundação da Incomolas",
-                d: "Início da operação em galpão próprio em São Paulo, focados em molas para academias.",
+                d: "Início da operação em galpão próprio em Maringá/PR, focados em molas para academias.",
               },
               {
                 y: "2014",
@@ -344,6 +344,80 @@ export default function SobrePage() {
         </div>
       </section>
 
+      {/* LOCATION & MAP */}
+      <section className="py-16 border-b border-[var(--border)]">
+        <div className="container-i">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 items-stretch">
+            <div>
+              <span className="section-label">Onde estamos</span>
+              <h2 className="font-display text-[40px] font-extrabold text-text-1 leading-tight mb-5">
+                Fábrica em Maringá/PR
+              </h2>
+              <p className="font-body text-[16px] text-text-2 leading-[1.7] mb-7">
+                Nossa unidade fica no Jardim Bertioga, em Maringá — Paraná, com
+                fácil acesso pela Av. Prefeito Sincler Sambatti. Receba a sua
+                visita técnica com hora marcada.
+              </p>
+
+              <div className="flex flex-col gap-3">
+                {[
+                  ["Endereço", "Av. Prefeito Sincler Sambatti, 4242"],
+                  ["Bairro", "Jardim Bertioga"],
+                  ["Cidade / UF", "Maringá / PR"],
+                  ["CEP", "87055-405"],
+                  ["Telefone", "(44) 3255-1912"],
+                  ["Horário", "Seg a Sex · 8h às 18h"],
+                ].map(([k, v]) => (
+                  <div
+                    key={k}
+                    className="flex items-start gap-3 p-3.5 rounded-md"
+                    style={{
+                      background: "var(--bg-2)",
+                      border: "1px solid var(--border)",
+                    }}
+                  >
+                    <div className="font-display text-[10px] font-bold tracking-[0.14em] uppercase text-text-3 w-[88px] flex-shrink-0 mt-1">
+                      {k}
+                    </div>
+                    <div className="font-body text-[14px] text-text-1 font-medium">
+                      {v}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-6">
+                <Button
+                  href="https://www.google.com/maps/dir/?api=1&destination=Av.+Prefeito+Sincler+Sambatti+4242+Jardim+Bertioga+Maring%C3%A1+PR"
+                  variant="outline"
+                >
+                  Como chegar
+                </Button>
+                <Button href="tel:+554432551912" variant="primary">
+                  Ligar (44) 3255-1912
+                </Button>
+              </div>
+            </div>
+
+            <div
+              className="rounded-lg overflow-hidden relative min-h-[420px]"
+              style={{ border: "1px solid var(--border)" }}
+            >
+              <iframe
+                title="Mapa da Incomolas — Av. Prefeito Sincler Sambatti, 4242, Jardim Bertioga, Maringá/PR"
+                src="https://www.google.com/maps?q=Av.+Prefeito+Sincler+Sambatti+4242+Jardim+Bertioga+Maring%C3%A1+PR&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, position: "absolute", inset: 0, filter: "grayscale(0.2) contrast(1.05)" }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT FOOTER */}
       <section className="py-16">
         <div className="container-i">
@@ -360,14 +434,14 @@ export default function SobrePage() {
             </h2>
             <p className="font-body text-[16px] text-text-2 leading-[1.6] max-w-[54ch] mx-auto mb-7">
               Tem um projeto, dúvida técnica ou quer conhecer a fábrica? Estamos
-              em São Paulo de seg a sex, 8h às 18h.
+              em Maringá/PR de seg a sex, 8h às 18h.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Button href="/orcamento" variant="primary" size="lg">
                 Solicitar Orçamento
               </Button>
               <Button
-                href="https://wa.me/5511900000000?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+um+projeto"
+                href="https://wa.me/554432551912?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+um+projeto"
                 variant="green"
                 size="lg"
               >

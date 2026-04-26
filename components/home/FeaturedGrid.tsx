@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { PRODUCTS } from "@/lib/products";
 import { SpringImage } from "../ui/SpringImage";
 import { Badge } from "../ui/Badge";
@@ -14,6 +14,12 @@ export function FeaturedGrid() {
   const featured = PRODUCTS[0]; // Mola Barra Olímpica
   const cards = PRODUCTS.slice(1, 5);
   const add = useCart((s) => s.add);
+  const router = useRouter();
+
+  const goTo = (href: string) => (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest("button, a")) return;
+    router.push(href);
+  };
 
   const renderPrice = (p: Product, big = false) => {
     if (!IS_ECOMMERCE || p.price === 0) {
@@ -90,8 +96,13 @@ export function FeaturedGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* hero card spans 2 rows */}
-          <Link
-            href={`/produto/${featured.slug}`}
+          <div
+            role="link"
+            tabIndex={0}
+            onClick={goTo(`/produto/${featured.slug}`)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") router.push(`/produto/${featured.slug}`);
+            }}
             className="card-i md:row-span-2 cursor-pointer block"
           >
             <SpringImage
@@ -135,12 +146,17 @@ export function FeaturedGrid() {
                 </div>
               </div>
             </div>
-          </Link>
+          </div>
 
           {cards.map((p) => (
-            <Link
+            <div
               key={p.slug}
-              href={`/produto/${p.slug}`}
+              role="link"
+              tabIndex={0}
+              onClick={goTo(`/produto/${p.slug}`)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") router.push(`/produto/${p.slug}`);
+              }}
               className="card-i cursor-pointer block"
             >
               <SpringImage
@@ -165,7 +181,7 @@ export function FeaturedGrid() {
                   {renderAction(p)}
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/5511900000000?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
+      href="https://wa.me/554432551912?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-7 right-7 z-[200] w-[54px] h-[54px] rounded-full grid place-items-center transition-transform hover:scale-110"

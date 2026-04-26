@@ -10,17 +10,17 @@ export function Footer() {
             <Logo size="lg" />
             <p className="font-body text-[13px] text-text-3 leading-relaxed mt-5 mb-5 max-w-[34ch]">
               Fabricantes de molas de alta resistência para academias,
-              equipamentos esportivos e aplicações industriais. Varejo e
-              atacado em todo o Brasil.
+              equipamentos esportivos e aplicações industriais. Sediada em
+              Maringá/PR, atendemos em todo o Brasil.
             </p>
             <div className="flex flex-col gap-1.5">
               <div className="font-body text-[13px] text-text-3">
-                <strong className="text-text-2 font-medium">CNPJ:</strong>{" "}
-                00.000.000/0001-00
+                <strong className="text-text-2 font-medium">Endereço:</strong>{" "}
+                Av. Prefeito Sincler Sambatti, 4242 — Jardim Bertioga, Maringá/PR
               </div>
               <div className="font-body text-[13px] text-text-3">
-                <strong className="text-text-2 font-medium">Endereço:</strong>{" "}
-                Rua das Indústrias, 100 — São Paulo, SP
+                <strong className="text-text-2 font-medium">CEP:</strong>{" "}
+                87055-405
               </div>
               <div className="font-body text-[13px] text-text-3">
                 <strong className="text-text-2 font-medium">Horário:</strong>{" "}
@@ -52,7 +52,7 @@ export function Footer() {
           </div>
           <div>
             <FooterColTitle>Contato</FooterColTitle>
-            <Block label="WhatsApp" value="(11) 9 0000-0000" />
+            <Block label="Telefone" value="(44) 3255-1912" />
             <Block label="E-mail" value="contato@incomolas.com.br" />
             <div className="font-display text-[10px] font-bold tracking-[0.14em] uppercase text-text-3 mb-1 mt-3">
               Formas de pagamento

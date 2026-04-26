@@ -125,7 +125,7 @@ export default function EntregaPage() {
                   <FreteOpt
                     value="retirada"
                     name="Retirada na fábrica"
-                    sub="São Paulo · Seg–Sex 8h–18h"
+                    sub="Maringá/PR · Seg–Sex 8h–18h"
                     price="Grátis"
                     priceColor="var(--green)"
                     selected={frete === "retirada"}

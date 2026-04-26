@@ -104,7 +104,7 @@ function ConfirmacaoInner() {
               <br />
               PAC Correios · rastreável
               <br />
-              Av. Paulista, 1000 — São Paulo / SP
+              Endereço cadastrado no pedido
             </ConfirmCard>
 
             <ConfirmCard label="Acompanhe pelo WhatsApp">
@@ -142,7 +142,7 @@ function ConfirmacaoInner() {
             </Button>
             <Button variant="primary">Baixar comprovante PDF</Button>
             <Button
-              href="https://wa.me/5511900000000"
+              href="https://wa.me/554432551912"
               variant="green"
             >
               Falar no WhatsApp

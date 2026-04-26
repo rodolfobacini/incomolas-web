@@ -162,7 +162,7 @@ export function QuoteForm({ productSlug }: { productSlug?: string }) {
                   <strong className="text-text-1">{email}</strong>.
                 </div>
                 <Button
-                  href={`https://wa.me/5511900000000?text=${encodeURIComponent(
+                  href={`https://wa.me/554432551912?text=${encodeURIComponent(
                     `Olá, acabei de enviar um orçamento pelo site (${product ? product.name : "geral"}).`,
                   )}`}
                   variant="green"
@@ -206,7 +206,7 @@ export function QuoteForm({ productSlug }: { productSlug?: string }) {
                       required
                       value={telefone}
                       onChange={(e) => setTelefone(e.target.value)}
-                      placeholder="(11) 9 0000-0000"
+                      placeholder="(44) 9 0000-0000"
                       disabled={status === "sending"}
                     />
                   </div>
@@ -279,7 +279,7 @@ export function QuoteForm({ productSlug }: { productSlug?: string }) {
                 </Button>
                 <div className="font-body text-[12px] text-text-3 text-center mt-3">
                   ou ligue:{" "}
-                  <strong className="text-text-2">(11) 9 0000-0000</strong>
+                  <strong className="text-text-2">(44) 3255-1912</strong>
                 </div>
               </>
             )}

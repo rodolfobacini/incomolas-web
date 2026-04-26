@@ -285,7 +285,7 @@ export function ProductDetail({
                     Solicitar Orçamento
                   </Button>
                   <Button
-                    href="https://wa.me/5511900000000?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+da+mola"
+                    href="https://wa.me/554432551912?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+da+mola"
                     variant="green"
                     className="w-full justify-center mt-2.5"
                   >

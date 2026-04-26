@@ -42,7 +42,7 @@ function OrcamentoInner() {
                   Preencher formulário
                 </Button>
                 <Button
-                  href="https://wa.me/5511900000000?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
+                  href="https://wa.me/554432551912?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
                   variant="green"
                   size="lg"
                 >
@@ -234,9 +234,9 @@ function OrcamentoInner() {
             <ContactCard
               icon="💬"
               label="WhatsApp"
-              primary="(11) 9 0000-0000"
+              primary="(44) 3255-1912"
               sub="Resposta em poucos minutos · seg-sex 8h-18h"
-              href="https://wa.me/5511900000000"
+              href="https://wa.me/554432551912"
               cta="Iniciar conversa"
             />
             <ContactCard
@@ -250,9 +250,9 @@ function OrcamentoInner() {
             <ContactCard
               icon="📍"
               label="Visita técnica"
-              primary="Rua das Indústrias, 100"
-              sub="São Paulo, SP · agendamento prévio"
-              href="https://maps.google.com/?q=Rua+das+Industrias+100+Sao+Paulo"
+              primary="Av. Pref. Sincler Sambatti, 4242"
+              sub="Jardim Bertioga, Maringá/PR · agendamento prévio"
+              href="https://www.google.com/maps?q=Av.+Prefeito+Sincler+Sambatti+4242+Jardim+Bertioga+Maring%C3%A1+PR"
               cta="Ver no mapa"
             />
           </div>
@@ -273,7 +273,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Posso enviar um desenho técnico ou amostra física?",
-    a: "Sim. No formulário aceita anexos via e-mail. Para amostras físicas, combinamos o envio depois do contato — temos endereço de fábrica em São Paulo.",
+    a: "Sim. No formulário aceita anexos via e-mail. Para amostras físicas, combinamos o envio depois do contato — temos endereço de fábrica em Maringá/PR.",
   },
   {
     q: "Quais formas de pagamento vocês aceitam?",
@@ -281,7 +281,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Vocês entregam em todo Brasil?",
-    a: "Sim. Trabalhamos com PAC e SEDEX para volumes menores e transportadora própria para atacado. Retirada na fábrica em São Paulo também é uma opção.",
+    a: "Sim. Trabalhamos com PAC e SEDEX para volumes menores e transportadora própria para atacado. Retirada na fábrica em Maringá/PR também é uma opção.",
   },
   {
     q: "Que materiais vocês trabalham?",

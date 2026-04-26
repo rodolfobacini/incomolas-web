@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { Product } from "@/lib/types";
 import { Badge } from "./Badge";
 import { Button } from "./Button";
@@ -17,6 +17,8 @@ export function ProductCard({
   layout?: "grid" | "list";
 }) {
   const add = useCart((s) => s.add);
+  const router = useRouter();
+  const productHref = `/produto/${product.slug}`;
 
   const isList = layout === "list";
 
@@ -31,6 +33,15 @@ export function ProductCard({
       imageTone: product.imageTone,
       image: product.image,
     });
+  };
+
+  const onCardClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest("button, a")) return;
+    router.push(productHref);
+  };
+
+  const onCardKey = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") router.push(productHref);
   };
 
   const PriceCell = () => {
@@ -69,8 +80,12 @@ export function ProductCard({
   };
 
   return (
-    <Link
-      href={`/produto/${product.slug}`}
+    <div
+      role="link"
+      tabIndex={0}
+      onClick={onCardClick}
+      onKeyDown={onCardKey}
+      aria-label={product.name}
       className={
         isList
           ? "card-i grid grid-cols-[160px_1fr_auto] cursor-pointer"
@@ -116,6 +131,6 @@ export function ProductCard({
           <ActionBtn />
         </div>
       )}
-    </Link>
+    </div>
   );
 }

@@ -10,12 +10,12 @@ test.describe("Sobre page", () => {
 
     // Updated company facts (use .first() since values appear in multiple sections)
     await expect(
-      page.getByText(/Av\. Prefeito Sincler Sambatti, 4242/i).first(),
+      page.getByText(/Rua Pioneira Laura Sordi Leonardo, 478/i).first(),
     ).toBeVisible();
-    await expect(page.getByText(/Jardim Bertioga/i).first()).toBeVisible();
+    await expect(page.getByText(/Jardim Hanover/i).first()).toBeVisible();
     await expect(page.getByText(/Maring[áa]\s*\/\s*PR/i).first()).toBeVisible();
-    await expect(page.getByText(/87055-405/).first()).toBeVisible();
-    await expect(page.getByText(/\(44\)\s*3255-1912/).first()).toBeVisible();
+    await expect(page.getByText(/87065-629/).first()).toBeVisible();
+    await expect(page.getByText(/\(44\)\s*3029-7627/).first()).toBeVisible();
   });
 
   test("renders embedded Google Maps iframe pointing at the factory", async ({
@@ -31,7 +31,7 @@ test.describe("Sobre page", () => {
       .locator('iframe[title*="Mapa da Incomolas"]')
       .getAttribute("src");
     expect(iframeSrc).toContain("google.com/maps");
-    expect(iframeSrc).toContain("Sincler");
+    expect(iframeSrc).toContain("Laura+Sordi+Leonardo");
 
     // Sanity probe inside the iframe (optional, may be blocked by Google CSP)
     void map;
@@ -43,13 +43,13 @@ test.describe("Sobre page", () => {
     await expect(link).toBeVisible();
     const href = await link.getAttribute("href");
     expect(href).toContain("google.com/maps/dir");
-    expect(href).toContain("Sincler");
+    expect(href).toContain("Laura+Sordi+Leonardo");
   });
 
   test("'Ligar' link uses tel: with the right phone", async ({ page }) => {
     await page.goto("/sobre");
-    const tel = page.getByRole("link", { name: /Ligar.*3255-1912/i });
+    const tel = page.getByRole("link", { name: /Ligar.*3029-7627/i });
     await expect(tel).toBeVisible();
-    await expect(tel).toHaveAttribute("href", "tel:+554432551912");
+    await expect(tel).toHaveAttribute("href", "tel:+554430297627");
   });
 });

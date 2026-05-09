@@ -42,7 +42,7 @@ function OrcamentoInner() {
                   Preencher formulário
                 </Button>
                 <Button
-                  href="https://wa.me/554432551912?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
+                  href="https://wa.me/554430297627?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
                   variant="green"
                   size="lg"
                 >
@@ -234,25 +234,25 @@ function OrcamentoInner() {
             <ContactCard
               icon="💬"
               label="WhatsApp"
-              primary="(44) 3255-1912"
+              primary="(44) 3029-7627"
               sub="Resposta em poucos minutos · seg-sex 8h-18h"
-              href="https://wa.me/554432551912"
+              href="https://wa.me/554430297627"
               cta="Iniciar conversa"
             />
             <ContactCard
               icon="✉️"
               label="E-mail"
-              primary="contato@incomolas.com.br"
+              primary="incomolas@gmail.com"
               sub="Para anexar desenho técnico ou ficha de especificações"
-              href="mailto:contato@incomolas.com.br"
+              href="mailto:incomolas@gmail.com"
               cta="Enviar e-mail"
             />
             <ContactCard
               icon="📍"
               label="Visita técnica"
-              primary="Av. Pref. Sincler Sambatti, 4242"
-              sub="Jardim Bertioga, Maringá/PR · agendamento prévio"
-              href="https://www.google.com/maps?q=Av.+Prefeito+Sincler+Sambatti+4242+Jardim+Bertioga+Maring%C3%A1+PR"
+              primary="Rua Pion. Laura Sordi Leonardo, 478"
+              sub="Jardim Hanover, Maringá/PR · agendamento prévio"
+              href="https://www.google.com/maps?q=Rua+Pioneira+Laura+Sordi+Leonardo+478+Jardim+Hanover+Maring%C3%A1+PR"
               cta="Ver no mapa"
             />
           </div>

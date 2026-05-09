@@ -354,18 +354,18 @@ export default function SobrePage() {
                 Fábrica em Maringá/PR
               </h2>
               <p className="font-body text-[16px] text-text-2 leading-[1.7] mb-7">
-                Nossa unidade fica no Jardim Bertioga, em Maringá — Paraná, com
-                fácil acesso pela Av. Prefeito Sincler Sambatti. Receba a sua
+                Nossa unidade fica no Jardim Hanover, em Maringá — Paraná, com
+                fácil acesso pela Rua Pioneira Laura Sordi Leonardo. Receba a sua
                 visita técnica com hora marcada.
               </p>
 
               <div className="flex flex-col gap-3">
                 {[
-                  ["Endereço", "Av. Prefeito Sincler Sambatti, 4242"],
-                  ["Bairro", "Jardim Bertioga"],
+                  ["Endereço", "Rua Pioneira Laura Sordi Leonardo, 478"],
+                  ["Bairro", "Jardim Hanover"],
                   ["Cidade / UF", "Maringá / PR"],
-                  ["CEP", "87055-405"],
-                  ["Telefone", "(44) 3255-1912"],
+                  ["CEP", "87065-629"],
+                  ["Telefone", "(44) 3029-7627"],
                   ["Horário", "Seg a Sex · 8h às 18h"],
                 ].map(([k, v]) => (
                   <div
@@ -388,13 +388,13 @@ export default function SobrePage() {
 
               <div className="flex flex-wrap gap-3 mt-6">
                 <Button
-                  href="https://www.google.com/maps/dir/?api=1&destination=Av.+Prefeito+Sincler+Sambatti+4242+Jardim+Bertioga+Maring%C3%A1+PR"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Rua+Pioneira+Laura+Sordi+Leonardo+478+Jardim+Hanover+Maring%C3%A1+PR"
                   variant="outline"
                 >
                   Como chegar
                 </Button>
-                <Button href="tel:+554432551912" variant="primary">
-                  Ligar (44) 3255-1912
+                <Button href="tel:+554430297627" variant="primary">
+                  Ligar (44) 3029-7627
                 </Button>
               </div>
             </div>
@@ -404,8 +404,8 @@ export default function SobrePage() {
               style={{ border: "1px solid var(--border)" }}
             >
               <iframe
-                title="Mapa da Incomolas — Av. Prefeito Sincler Sambatti, 4242, Jardim Bertioga, Maringá/PR"
-                src="https://www.google.com/maps?q=Av.+Prefeito+Sincler+Sambatti+4242+Jardim+Bertioga+Maring%C3%A1+PR&output=embed"
+                title="Mapa da Incomolas — Rua Pioneira Laura Sordi Leonardo, 478, Jardim Hanover, Maringá/PR"
+                src="https://www.google.com/maps?q=Rua+Pioneira+Laura+Sordi+Leonardo+478+Jardim+Hanover+Maring%C3%A1+PR&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, position: "absolute", inset: 0, filter: "grayscale(0.2) contrast(1.05)" }}
@@ -441,7 +441,7 @@ export default function SobrePage() {
                 Solicitar Orçamento
               </Button>
               <Button
-                href="https://wa.me/554432551912?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+um+projeto"
+                href="https://wa.me/554430297627?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+um+projeto"
                 variant="green"
                 size="lg"
               >

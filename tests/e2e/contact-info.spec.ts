@@ -6,28 +6,28 @@ test.describe("Contact info consistency", () => {
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
     await expect(
-      footer.getByText(/Av\. Prefeito Sincler Sambatti, 4242/i).first(),
+      footer.getByText(/Rua Pioneira Laura Sordi Leonardo, 478/i).first(),
     ).toBeVisible();
     await expect(footer.getByText(/Maring[áa]\s*\/\s*PR/i).first()).toBeVisible();
-    await expect(footer.getByText(/87055-405/).first()).toBeVisible();
-    await expect(footer.getByText(/\(44\)\s*3255-1912/).first()).toBeVisible();
+    await expect(footer.getByText(/87065-629/).first()).toBeVisible();
+    await expect(footer.getByText(/\(44\)\s*3029-7627/).first()).toBeVisible();
   });
 
   test("WhatsApp floating button uses real phone", async ({ page }) => {
     await page.goto("/");
     const wa = page.getByRole("link", { name: /Falar no WhatsApp/i });
-    await expect(wa).toHaveAttribute("href", /wa\.me\/554432551912/);
+    await expect(wa).toHaveAttribute("href", /wa\.me\/554430297627/);
   });
 
-  test("orçamento page shows visit address with Maringá and Sincler", async ({
+  test("orçamento page shows visit address with Maringá and Laura Sordi", async ({
     page,
   }) => {
     await page.goto("/orcamento");
     await expect(
-      page.getByText(/Av\. Pref\. Sincler Sambatti, 4242/i).first(),
+      page.getByText(/Rua Pion\. Laura Sordi Leonardo, 478/i).first(),
     ).toBeVisible();
     await expect(
-      page.getByText(/Jardim Bertioga, Maring[áa]\/PR/i).first(),
+      page.getByText(/Jardim Hanover, Maring[áa]\/PR/i).first(),
     ).toBeVisible();
   });
 

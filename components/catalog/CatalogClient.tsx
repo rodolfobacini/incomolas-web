@@ -15,6 +15,16 @@ export function CatalogClient() {
   const [filter, setFilter] = useState<FilterState>(INITIAL_FILTER);
   const [view, setView] = useState<"grid" | "list">("grid");
   const [sort, setSort] = useState<SortKey>("relevance");
+  const categoryCounts = useMemo(() => {
+    const counts = PRODUCTS.reduce(
+      (acc, product) => {
+        acc[product.category] = (acc[product.category] ?? 0) + 1;
+        return acc;
+      },
+      {} as Record<CategoryKey, number>,
+    );
+    return { counts, total: PRODUCTS.length };
+  }, []);
 
   // Sync ?cat= from URL into filter
   useEffect(() => {
@@ -76,7 +86,7 @@ export function CatalogClient() {
               Catálogo de Molas
             </h1>
             <p className="font-body text-[15px] text-text-2 mt-2">
-              Linha completa — academia, cama elástica, jump e industrial ·{" "}
+              Linha completa — agrícola, academia, cama elástica, jump, industrial, automotivo e carroceria ·{" "}
               <strong className="text-text-1">{PRODUCTS.length} produtos</strong>
             </p>
           </div>
@@ -111,10 +121,12 @@ export function CatalogClient() {
                     className={`font-display text-[10px] rounded-full px-1.5 py-0.5 border ${
                       active
                         ? "bg-[color:var(--accent-bg)] border-[color:oklch(30%_0.1_38)] text-[color:var(--accent)]"
-                        : "bg-bg-3 border-[var(--border)] text-text-3"
+                      : "bg-bg-3 border-[var(--border)] text-text-3"
                     }`}
                   >
-                    {c.count}
+                    {c.key === "todos"
+                      ? categoryCounts.total
+                      : categoryCounts.counts[c.key] ?? 0}
                   </span>
                 </button>
               );

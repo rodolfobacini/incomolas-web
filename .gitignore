@@ -13,3 +13,6 @@ test-results/
 playwright-report/
 playwright/.cache/
 .omc/
+
+# PDFs originais do catálogo — material de origem, não vão pro build
+portfolio/*.pdf

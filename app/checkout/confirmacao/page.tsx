@@ -142,7 +142,7 @@ function ConfirmacaoInner() {
             </Button>
             <Button variant="primary">Baixar comprovante PDF</Button>
             <Button
-              href="https://wa.me/554430297627"
+              href="https://wa.me/5544997072664"
               variant="green"
             >
               Falar no WhatsApp

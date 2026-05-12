@@ -40,9 +40,9 @@ export function Hero() {
           </span>
         </h1>
         <p className="font-body text-[19px] text-text-2 leading-[1.65] max-w-[54ch] mx-auto mb-10">
-          Fabricamos molas de alta resistência para academias, camas elásticas,
-          jumps e aplicações industriais. Do varejo ao atacado, qualidade em
-          cada peça.
+          Fabricamos molas agrícolas, automotivas, industriais e para academia, cama
+          elástica e jump. Reposição original por código de fabricante e projetos sob
+          medida — do varejo ao atacado.
         </p>
         <div className="flex flex-wrap gap-3.5 justify-center">
           <Button href="/catalogo" variant="primary" size="lg">

@@ -10,13 +10,13 @@ import { useCart } from "@/store/cart";
 import { IS_ECOMMERCE } from "@/lib/mode";
 import type { Product } from "@/lib/types";
 
-// Curadoria: destaque + uma peça de cada categoria pra mostrar variedade
-const FEATURED_SLUG = "mola-barra-olimpica";
+// Curadoria: destaque + uma peça de cada linha pra mostrar variedade
+const FEATURED_SLUG = "mola-tatu-disco-pst";
 const CARD_SLUGS = [
-  "kit-molas-cama-4-5m", // Cama Elástica
-  "mola-jump-profissional", // Jump
-  "mola-suspensao-carro", // Automotivo
-  "mola-compressao-industrial", // Industrial
+  "mola-baldan-plantadeira-pst", // Agrícola · Baldan
+  "mola-barra-olimpica", // Academia
+  "mola-patim-scania", // Automotivo · Linha pesada
+  "dobradica-tampa-randon-moderna", // Carroceria
 ] as const;
 
 export function FeaturedGrid() {

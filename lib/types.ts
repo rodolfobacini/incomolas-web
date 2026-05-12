@@ -1,9 +1,11 @@
 export type CategoryKey =
+  | "agricola"
   | "academia"
   | "cama"
   | "jump"
   | "industrial"
-  | "automotivo";
+  | "automotivo"
+  | "carroceria";
 
 export type Material =
   | "Aço SAE 9254"

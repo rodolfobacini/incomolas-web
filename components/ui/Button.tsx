@@ -34,6 +34,9 @@ type ButtonAsLink = CommonProps & {
   children?: React.ReactNode;
   onClick?: never;
   type?: never;
+  target?: "_blank" | "_self";
+  rel?: string;
+  download?: boolean | string;
 };
 
 export function Button(props: ButtonAsButton | ButtonAsLink) {
@@ -42,8 +45,15 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
   const cls = cn("btn", VARIANT[variant], SIZE[size], props.className);
 
   if ("href" in props && props.href) {
+    const linkProps = props as ButtonAsLink;
     return (
-      <Link href={props.href} className={cls}>
+      <Link
+        href={linkProps.href}
+        className={cls}
+        target={linkProps.target}
+        rel={linkProps.rel ?? (linkProps.target === "_blank" ? "noopener noreferrer" : undefined)}
+        {...(linkProps.download !== undefined ? { download: linkProps.download as boolean } : {})}
+      >
         {props.children}
       </Link>
     );

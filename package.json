@@ -10,7 +10,9 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "fotos:normalize": "node scripts/batch-normalize-photos.mjs",
+    "fotos:one": "node scripts/normalize-product-photo.mjs"
   },
   "dependencies": {
     "next": "^14.2.18",
@@ -26,6 +28,7 @@
     "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   }

@@ -4,7 +4,6 @@ import { FeaturedGrid } from "@/components/home/FeaturedGrid";
 import { CategoryCards } from "@/components/home/CategoryCards";
 import { DiffBand } from "@/components/home/DiffBand";
 import { Institutional } from "@/components/home/Institutional";
-import { Testimonials } from "@/components/home/Testimonials";
 import { QuoteForm } from "@/components/home/QuoteForm";
 
 export default function HomePage() {
@@ -16,7 +15,6 @@ export default function HomePage() {
       <CategoryCards />
       <DiffBand />
       <Institutional />
-      <Testimonials />
       <QuoteForm />
     </>
   );

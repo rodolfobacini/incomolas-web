@@ -52,7 +52,7 @@ export function Footer() {
           </div>
           <div>
             <FooterColTitle>Contato</FooterColTitle>
-            <Block label="Telefone" value="(44) 3029-7627" />
+            <Block label="Telefone" value="(44) 99707-2664" />
             <Block label="E-mail" value="incomolas@gmail.com" />
             <div className="font-display text-[10px] font-bold tracking-[0.14em] uppercase text-text-3 mb-1 mt-3">
               Formas de pagamento

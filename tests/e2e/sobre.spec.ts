@@ -15,7 +15,7 @@ test.describe("Sobre page", () => {
     await expect(page.getByText(/Jardim Hanover/i).first()).toBeVisible();
     await expect(page.getByText(/Maring[áa]\s*\/\s*PR/i).first()).toBeVisible();
     await expect(page.getByText(/87065-629/).first()).toBeVisible();
-    await expect(page.getByText(/\(44\)\s*3029-7627/).first()).toBeVisible();
+    await expect(page.getByText(/\(44\)\s*99707-2664/).first()).toBeVisible();
   });
 
   test("renders embedded Google Maps iframe pointing at the factory", async ({
@@ -48,8 +48,8 @@ test.describe("Sobre page", () => {
 
   test("'Ligar' link uses tel: with the right phone", async ({ page }) => {
     await page.goto("/sobre");
-    const tel = page.getByRole("link", { name: /Ligar.*3029-7627/i });
+    const tel = page.getByRole("link", { name: /Ligar.*99707-2664/i });
     await expect(tel).toBeVisible();
-    await expect(tel).toHaveAttribute("href", "tel:+554430297627");
+    await expect(tel).toHaveAttribute("href", "tel:+5544997072664");
   });
 });

@@ -162,7 +162,7 @@ export function QuoteForm({ productSlug }: { productSlug?: string }) {
                   <strong className="text-text-1">{email}</strong>.
                 </div>
                 <Button
-                  href={`https://wa.me/554430297627?text=${encodeURIComponent(
+                  href={`https://wa.me/5544997072664?text=${encodeURIComponent(
                     `Olá, acabei de enviar um orçamento pelo site (${product ? product.name : "geral"}).`,
                   )}`}
                   variant="green"
@@ -279,7 +279,7 @@ export function QuoteForm({ productSlug }: { productSlug?: string }) {
                 </Button>
                 <div className="font-body text-[12px] text-text-3 text-center mt-3">
                   ou ligue:{" "}
-                  <strong className="text-text-2">(44) 3029-7627</strong>
+                  <strong className="text-text-2">(44) 99707-2664</strong>
                 </div>
               </>
             )}

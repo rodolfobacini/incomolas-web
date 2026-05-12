@@ -28,6 +28,7 @@ export function SpringImage({
   label,
   alt,
   className,
+  imageFilter,
 }: {
   tone?: Product["imageTone"];
   size?: "sm" | "md" | "lg" | "xl";
@@ -35,13 +36,14 @@ export function SpringImage({
   label?: string;
   alt?: string;
   className?: string;
+  imageFilter?: string;
 }) {
   const h = SIZE_HEIGHT[size];
 
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center overflow-hidden",
+        "relative w-full flex items-center justify-center overflow-hidden",
         className,
       )}
       style={{ background: TONE_BG[tone], height: h }}
@@ -52,7 +54,10 @@ export function SpringImage({
           style={{
             width: `${SIZE_IMG_RATIO[size] * 100}%`,
             height: `${SIZE_IMG_RATIO[size] * 100}%`,
-            filter: "drop-shadow(0 8px 30px rgba(0,0,0,0.7))",
+            filter: `drop-shadow(0 8px 30px rgba(0,0,0,0.7))${
+              imageFilter ? ` ${imageFilter}` : ""
+            }`,
+            transition: "filter 200ms ease",
           }}
         >
           <Image

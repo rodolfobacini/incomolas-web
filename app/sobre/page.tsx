@@ -365,7 +365,7 @@ export default function SobrePage() {
                   ["Bairro", "Jardim Hanover"],
                   ["Cidade / UF", "Maringá / PR"],
                   ["CEP", "87065-629"],
-                  ["Telefone", "(44) 3029-7627"],
+                  ["Telefone", "(44) 99707-2664"],
                   ["Horário", "Seg a Sex · 8h às 18h"],
                 ].map(([k, v]) => (
                   <div
@@ -393,8 +393,8 @@ export default function SobrePage() {
                 >
                   Como chegar
                 </Button>
-                <Button href="tel:+554430297627" variant="primary">
-                  Ligar (44) 3029-7627
+                <Button href="tel:+5544997072664" variant="primary">
+                  Ligar (44) 99707-2664
                 </Button>
               </div>
             </div>
@@ -441,7 +441,7 @@ export default function SobrePage() {
                 Solicitar Orçamento
               </Button>
               <Button
-                href="https://wa.me/554430297627?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+um+projeto"
+                href="https://wa.me/5544997072664?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+um+projeto"
                 variant="green"
                 size="lg"
               >

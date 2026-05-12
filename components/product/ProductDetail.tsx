@@ -12,6 +12,23 @@ import { brl } from "@/lib/format";
 import { useCart } from "@/store/cart";
 import { LoadCalculator } from "./LoadCalculator";
 import { IS_ECOMMERCE } from "@/lib/mode";
+import type { Acabamento } from "@/lib/types";
+
+// Cada acabamento muda o tom de fundo + um filtro CSS sobre a foto,
+// dando uma pré-visualização aproximada do produto naquele acabamento.
+const ACABAMENTO_TONE: Record<Acabamento, Product["imageTone"]> = {
+  "Fosfato Preto": "dark",
+  Zinco: "zinc",
+  Cromo: "chrome",
+  Natural: "steel",
+};
+
+const ACABAMENTO_FILTER: Record<Acabamento, string> = {
+  "Fosfato Preto": "brightness(0.7) contrast(1.15) saturate(0.4)",
+  Zinco: "brightness(1.05) contrast(1) saturate(0.8) hue-rotate(180deg)",
+  Cromo: "brightness(1.25) contrast(1.2) saturate(0.2)",
+  Natural: "brightness(1) contrast(1) saturate(1)",
+};
 
 export function ProductDetail({
   product,
@@ -23,7 +40,7 @@ export function ProductDetail({
   const [material, setMaterial] = useState(product.material);
   const [acabamento, setAcabamento] = useState(product.acabamento);
   const [qty, setQty] = useState(1);
-  const [tab, setTab] = useState<"specs" | "desc" | "reviews">("specs");
+  const [tab, setTab] = useState<"specs" | "desc">("specs");
   const [thumbIdx, setThumbIdx] = useState(0);
   const add = useCart((s) => s.add);
 
@@ -72,16 +89,17 @@ export function ProductDetail({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             {/* Gallery */}
             <div className="flex flex-col gap-3 md:sticky md:top-20">
-              <div className="card-i h-[420px] flex items-center justify-center relative overflow-hidden">
+              <div className="card-i h-[420px] relative overflow-hidden">
                 <div className="absolute top-4 left-4 z-10">
                   <Badge kind="estoque">Em Estoque</Badge>
                 </div>
                 <SpringImage
-                  tone={product.imageTone}
+                  tone={ACABAMENTO_TONE[acabamento] ?? product.imageTone}
                   size="xl"
                   src={product.image}
                   alt={product.name}
-                  label={product.spec}
+                  label={`${product.spec} · ${acabamento}`}
+                  imageFilter={ACABAMENTO_FILTER[acabamento]}
                 />
               </div>
               <div className="flex gap-2.5">
@@ -96,10 +114,11 @@ export function ProductDetail({
                     }`}
                   >
                     <SpringImage
-                      tone={product.imageTone}
+                      tone={ACABAMENTO_TONE[acabamento] ?? product.imageTone}
                       size="sm"
                       src={product.image}
                       alt={product.name}
+                      imageFilter={ACABAMENTO_FILTER[acabamento]}
                     />
                   </button>
                 ))}
@@ -124,13 +143,6 @@ export function ProductDetail({
                   </Badge>
                 ))}
               </div>
-              <div className="flex items-center gap-2 mb-5">
-                <Stars rating={product.rating} />
-                <span className="font-body text-[13px] text-text-3">
-                  {product.rating.toFixed(1)} · {product.ratingCount} avaliações
-                </span>
-              </div>
-
               <hr className="border-[var(--border)] my-6" />
 
               {/* Variants */}
@@ -285,7 +297,7 @@ export function ProductDetail({
                     Solicitar Orçamento
                   </Button>
                   <Button
-                    href="https://wa.me/554430297627?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+da+mola"
+                    href="https://wa.me/5544997072664?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+da+mola"
                     variant="green"
                     className="w-full justify-center mt-2.5"
                   >
@@ -313,7 +325,6 @@ export function ProductDetail({
               [
                 ["specs", "Especificações Técnicas"],
                 ["desc", "Descrição"],
-                ["reviews", `Avaliações (${product.ratingCount})`],
               ] as const
             ).map(([k, l]) => (
               <button
@@ -341,18 +352,23 @@ export function ProductDetail({
                   {p}
                 </p>
               ))}
-              <div className="flex gap-3 mt-7">
-                <Button variant="ghost">Baixar Datasheet PDF</Button>
-                <Button variant="ghost">Solicitar Amostra</Button>
+              <div className="flex gap-3 mt-7 flex-wrap">
+                <Button
+                  variant="ghost"
+                  href={`/orcamento?p=${product.slug}&tipo=amostra`}
+                >
+                  Solicitar Amostra
+                </Button>
               </div>
             </div>
           )}
-          {tab === "reviews" && <Reviews product={product} />}
         </div>
       </section>
 
-      {/* CALCULATOR */}
-      {product.price > 0 && (
+      {/* CALCULATOR — só faz sentido pra molas com constante k real */}
+      {product.specs.desempenho.some((r) =>
+        r.key.toLowerCase().includes("constante"),
+      ) && (
         <section className="py-14 border-b border-[var(--border)]">
           <div className="container-i">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -439,27 +455,6 @@ function VariantBtn({
   );
 }
 
-function Stars({ rating }: { rating: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((n) => (
-        <svg
-          key={n}
-          width="14"
-          height="14"
-          viewBox="0 0 16 16"
-          style={{
-            fill: "var(--accent)",
-            opacity: rating >= n ? 1 : 0.3,
-          }}
-        >
-          <path d="M8 1l2.09 4.26L15 6.27l-3.5 3.41.83 4.82L8 12.27l-4.33 2.23.83-4.82L1 6.27l4.91-.01L8 1z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 function Trust({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-1.5">
@@ -530,60 +525,3 @@ function SpecTable({
   );
 }
 
-function Reviews({ product }: { product: Product }) {
-  const samples = [
-    {
-      name: "Roberto S.",
-      role: "Academia",
-      stars: 5,
-      text: "Comprei 30 pares e vieram impecáveis. Ajuste exato nas barras olímpicas e nenhum sinal de fadiga após 4 meses de uso.",
-    },
-    {
-      name: "Ana P.",
-      role: "Distribuidora",
-      stars: 4,
-      text: "Atendimento rápido para atacado. Entrega no prazo. Preço competitivo nos lotes maiores.",
-    },
-    {
-      name: "Eng. Lucas",
-      role: "Fab. Equipamentos",
-      stars: 4,
-      text: "Especificação técnica conforme datasheet. A constante k bate certinho com o catálogo.",
-    },
-  ];
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 items-start">
-      <div className="card-i p-6 text-center hover:translate-y-0">
-        <div className="font-display text-[64px] font-black text-text-1 leading-none">
-          {product.rating.toFixed(1)}
-        </div>
-        <div className="flex justify-center my-2">
-          <Stars rating={product.rating} />
-        </div>
-        <div className="font-body text-[12px] text-text-3">
-          {product.ratingCount} avaliações
-        </div>
-      </div>
-      <div className="flex flex-col gap-4">
-        {samples.map((s) => (
-          <div key={s.name} className="card-i p-5 hover:translate-y-0">
-            <div className="flex items-center justify-between mb-2.5">
-              <div>
-                <div className="font-display text-[14px] font-bold text-text-1">
-                  {s.name}
-                </div>
-                <div className="font-display text-[11px] tracking-[0.08em] uppercase text-text-3">
-                  {s.role}
-                </div>
-              </div>
-              <Stars rating={s.stars} />
-            </div>
-            <p className="font-body text-[14px] text-text-2 leading-[1.7]">
-              {s.text}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}

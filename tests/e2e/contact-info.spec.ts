@@ -10,13 +10,13 @@ test.describe("Contact info consistency", () => {
     ).toBeVisible();
     await expect(footer.getByText(/Maring[áa]\s*\/\s*PR/i).first()).toBeVisible();
     await expect(footer.getByText(/87065-629/).first()).toBeVisible();
-    await expect(footer.getByText(/\(44\)\s*3029-7627/).first()).toBeVisible();
+    await expect(footer.getByText(/\(44\)\s*99707-2664/).first()).toBeVisible();
   });
 
   test("WhatsApp floating button uses real phone", async ({ page }) => {
     await page.goto("/");
     const wa = page.getByRole("link", { name: /Falar no WhatsApp/i });
-    await expect(wa).toHaveAttribute("href", /wa\.me\/554430297627/);
+    await expect(wa).toHaveAttribute("href", /wa\.me\/5544997072664/);
   });
 
   test("orçamento page shows visit address with Maringá and Laura Sordi", async ({

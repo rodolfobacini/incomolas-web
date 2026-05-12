@@ -5,29 +5,35 @@ import type { Product } from "@/lib/types";
 import { Button } from "../ui/Button";
 
 export function LoadCalculator({ product }: { product: Product }) {
-  const [carga, setCarga] = useState("80");
-  const [curso, setCurso] = useState("40");
-
-  // pega k da spec se existir (ex: "8,4 kgf/mm")
+  // pega k da spec (ex: "8,4 kgf/mm")
   const k = useMemo(() => {
     const row = product.specs.desempenho.find((r) =>
       r.key.toLowerCase().includes("constante"),
     );
-    if (!row) return 8.4;
+    if (!row) return 0;
     const m = row.value.replace(",", ".").match(/[\d.]+/);
-    return m ? parseFloat(m[0]) : 8.4;
+    return m ? parseFloat(m[0]) : 0;
   }, [product]);
+
+  const cargaMaxRow = product.specs.desempenho.find((r) =>
+    r.key.toLowerCase().includes("carga"),
+  );
+  const cargaMax = cargaMaxRow
+    ? parseFloat(cargaMaxRow.value.replace(",", ".")) || 0
+    : 0;
+
+  // Defaults: 50% da carga máx e o curso correspondente — começa em estado OK
+  const defaultCarga = cargaMax > 0 ? Math.round(cargaMax * 0.5) : 50;
+  const defaultCurso =
+    k > 0 && cargaMax > 0 ? Math.round((defaultCarga / k) * 0.9) : 5;
+
+  const [carga, setCarga] = useState(String(defaultCarga));
+  const [curso, setCurso] = useState(String(defaultCurso));
 
   const cargaN = parseFloat(carga.replace(",", ".")) || 0;
   const cursoN = parseFloat(curso.replace(",", ".")) || 0;
 
   const deflexao = k > 0 ? cargaN / k : 0;
-  const cargaMaxRow = product.specs.desempenho.find((r) =>
-    r.key.toLowerCase().includes("carga"),
-  );
-  const cargaMax = cargaMaxRow
-    ? parseFloat(cargaMaxRow.value.replace(",", ".")) || 120
-    : 120;
 
   const ok = cargaN <= cargaMax && deflexao >= cursoN;
 

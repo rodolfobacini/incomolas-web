@@ -42,7 +42,7 @@ function OrcamentoInner() {
                   Preencher formulário
                 </Button>
                 <Button
-                  href="https://wa.me/554430297627?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
+                  href="https://wa.me/5544997072664?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento"
                   variant="green"
                   size="lg"
                 >
@@ -234,9 +234,9 @@ function OrcamentoInner() {
             <ContactCard
               icon="💬"
               label="WhatsApp"
-              primary="(44) 3029-7627"
+              primary="(44) 99707-2664"
               sub="Resposta em poucos minutos · seg-sex 8h-18h"
-              href="https://wa.me/554430297627"
+              href="https://wa.me/5544997072664"
               cta="Iniciar conversa"
             />
             <ContactCard
